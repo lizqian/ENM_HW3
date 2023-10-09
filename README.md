@@ -1,0 +1,11 @@
+# ENM_HW3: You be the professor this time. Student chat gpt wrote a few data science posts. Please find any relevant weaknesses in the logic used by chatGPT
+## Set 1
+- One of the first steps that ChatGPT tries to do is Product Category Identification, where the ML model says it will group similar products into makeshift categories base on their descriptions. However, this seems hard to do logically. How could the ML produce code to accurately group these products together? Without writing code for some kind of machine learning model trained to recognize product categories, this step seems implausible. ChatGPT seems to forget about this idea pretty quickly and doesn't do anything with it later.
+- At the step where ChatGPT says it will analyze multiple products to give it a braoder understanding of the relationship between discounts and sales, it calculates the product as "on sale" whenever the price of an item falls below the mean price. However, it does not make a lot of sense logically to designate the median price as the presale price. Doing this would make sense if the question being asked was how unit price affects the number of sales made, but it's not quite logically correct to designate discounted sales as simply all sales below the mean price.
+- My biggest issue with this analysis is the way the ML model answers the question "How much more product will I sell for every 10% discount?".
+  - ChatGPT chooses to approach this by calculating a 1% change in Unit Price and then using linear regression to calculate a 10% discount. This doesn't make a lot of sense because it calculates a single data point for each product and then fits that single point to a linear regression model.
+  - This 1% change also seems to be calculated only once using a just two data points, which doesn't make a lot of sense.
+  - The result of this is estimating the change in price for a single 10% decrease from the mean unit price rather than every 10% discount like you asked for.
+  - It would have made a lot more sense for ChatGPT to approach this problem by dividng prices for each product into 10% increments and then comparing the prices between each increment using linear regression. 
+
+## Set 3
